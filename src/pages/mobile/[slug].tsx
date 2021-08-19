@@ -46,7 +46,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   
   const response = await prismic.getByUID("posts", String(slug), {});
      
-  console.log(response.data)
   const date: any = response.last_publication_date;
   
   const posts = {
