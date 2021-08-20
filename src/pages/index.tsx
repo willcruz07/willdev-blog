@@ -25,7 +25,7 @@ export default function Home({ posts }: IPostsProps) {
             do conhecimento que venho adquirindo nestes anos como dev.</p>
           
           <p>Aqui você vai encontrar dicas de front com React JS, Mobile com
-            React Native e backend com NodeJs e Aps.net Core C#.</p>
+            React Native e backend com NodeJs</p>
           
           <p>Então sem mais delongas "Bora codar...</p>
         </div>
