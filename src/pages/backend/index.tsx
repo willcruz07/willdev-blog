@@ -9,6 +9,7 @@ import { GetStaticProps } from 'next';
 import { Search } from "../../components/Search";
 
 import styles from '../../styles/home.module.scss'
+import { EmptyList } from "../../components/EmptyList";
 
 export default function Backend({ posts }: IPostsProps) {
   const [listPost, setListPost] = React.useState(posts);
@@ -21,23 +22,29 @@ export default function Backend({ posts }: IPostsProps) {
       </Head>
 
       <main>
-        <Search
-          listPost={fullListPost}
-          setList={setListPost}
-        />
+        {listPost.length ?
+          <>
+            <Search
+              listPost={fullListPost}
+              setList={setListPost}
+            />
 
-        <div className={styles.containerGridCardPost}>
-          {listPost.map(post => (
-              <CardPost
-                key={post.slug}
-                slug={post.slug}
-                thumb={post.thumb}
-                tech={post.tag}
-                title={post.title} 
-                datePost={post.updatedAt}
-              />
-            ))} 
-          </div>
+            <div className={styles.containerGridCardPost}>
+              {listPost.map(post => (
+                  <CardPost
+                    key={post.slug}
+                    slug={post.slug}
+                    thumb={post.thumb}
+                    tech={post.tag}
+                    title={post.title} 
+                    datePost={post.updatedAt}
+                  />
+                ))} 
+              </div>
+            </>
+          :
+          <EmptyList />
+        }
       </main>
     </div>
   )
