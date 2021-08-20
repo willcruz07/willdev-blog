@@ -1,14 +1,11 @@
 import Head from 'next/head'
 import { getPrismicClient } from '../../services/prismic';
-import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
-import { IPostsProps } from '../../models/Posts';
-import { CardPost } from '../../components/CardPost';
+import { GetServerSideProps } from 'next';
 
-// import styles from '../../styles/home.module.scss'
+import { FaRegCalendarAlt } from "react-icons/fa";
+
 import styles from '../../styles/posts.module.scss'
-
-import { GetServerSideProps, GetStaticProps } from 'next';
 
 interface IPostProp {
   posts: {
@@ -30,7 +27,12 @@ export default function backend({ posts }: IPostProp) {
       <main>
         <div className={styles.containerPosts}>
           <h2>{posts.title}</h2>
-          <time>{posts.updatedAt}</time>
+
+          <time>
+            <FaRegCalendarAlt />
+            {posts.updatedAt}
+          </time>
+
           <div
             dangerouslySetInnerHTML={{ __html: posts.content }}            
           />
@@ -45,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
   const { slug }: any = params;
   
   const response = await prismic.getByUID("posts", String(slug), {}); 
-  
+     
   const date: any = response.last_publication_date;
   
   const posts = {

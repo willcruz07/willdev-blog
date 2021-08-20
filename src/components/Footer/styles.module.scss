@@ -76,6 +76,11 @@
     margin-left: 0.2rem;
     font-weight: 600;
     font-size: 0.8rem;
+
+    transition: color 0.2s;
+    &:hover {
+      color: var(--primary);
+    }
   }
 
   p {

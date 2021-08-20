@@ -43,7 +43,7 @@ export const Footer = () => {
 
         <div className={styles.containerFooterWrapper_2}>
           <small>
-            © 2021 <a href="/">Blog Will-Dev.</a>
+            © 2021 - <a href="/">Blog Will-Dev.</a> Published with <a href="https://prismic.io/" target="_blank">Prismic.io</a> 
           </small>
         </div>
         

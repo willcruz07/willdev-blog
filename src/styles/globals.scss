@@ -8,11 +8,13 @@
   --white: #edf2f5;
   --white-2: #e1e7e9ef;
 
+  --white-text: #e0e0e0ef;
+
   --black: #282b33;
   --black-2: #25272c;
 
   --gray: #555a64;
-  --gray-2: #8b8688;
+  --gray-2: #7a6c71;
 
   --primary: #9d0c40;
   --secondary: #047ca1;
@@ -42,6 +44,7 @@
 body {
   background: var(--black);
   color: var(--white);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body,
@@ -59,6 +62,12 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+  background-color: transparent;
+}
+
+a:focus {
+  text-decoration: none;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar {

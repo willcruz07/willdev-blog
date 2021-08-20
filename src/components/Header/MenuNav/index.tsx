@@ -24,7 +24,7 @@ export const MenuNav = React.forwardRef<HTMLDivElement>((props, ref) => {
         </ActiveLink>
 
         <ActiveLink href="/mobile" activeClassName={styles.active}>
-          <a className={styles.active}>
+          <a>
             <FaMobileAlt/>
             Mobile
           </a>

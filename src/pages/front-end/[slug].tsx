@@ -1,13 +1,9 @@
 import Head from 'next/head'
 import { getPrismicClient } from '../../services/prismic';
-import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
-import { IPostsProps } from '../../models/Posts';
-import { CardPost } from '../../components/CardPost';
+import { GetServerSideProps } from 'next';
 
 import styles from '../../styles/posts.module.scss'
-
-import { GetServerSideProps, GetStaticProps } from 'next';
 
 interface IPostProp {
   posts: {
