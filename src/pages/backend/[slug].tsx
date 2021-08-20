@@ -22,7 +22,7 @@ export default function backend({ posts }: IPostProp) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>WillDev - Backend</title>
+        <title>WillDev - Backend - {posts.title}</title>
       </Head>
       <main>
         <div className={styles.containerPosts}>

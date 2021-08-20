@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { getPrismicClient } from '../../services/prismic';
 import { RichText } from "prismic-dom";
 import { GetServerSideProps } from 'next';
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 import styles from '../../styles/posts.module.scss'
 
@@ -20,12 +21,15 @@ export default function frontEnd({ posts }: IPostProp) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>WillDev - Front-End</title>
+        <title>WillDev - Front-End - {posts.title}</title>
       </Head>
       <main>
         <div className={styles.containerPosts}>
           <h2>{posts.title}</h2>
-          <time>{posts.updatedAt}</time>
+          <time>
+            <FaRegCalendarAlt />
+            {posts.updatedAt}
+          </time>
           <div
             dangerouslySetInnerHTML={{ __html: posts.content }}            
           />
