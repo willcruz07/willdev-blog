@@ -71,7 +71,8 @@ a:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 0.8rem;
+  width: 0.7rem;
+  height: 0.4rem;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -83,10 +84,10 @@ a:focus {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #82002d;
   filter: brightness(0.1);
-  border-radius: 2rem;
+  border-radius: 3rem;
 }
 
 ::-webkit-scrollbar-track-piece {
   background-color: #333436;
-  border-radius: 2rem;
+  border-radius: 3rem;
 }
