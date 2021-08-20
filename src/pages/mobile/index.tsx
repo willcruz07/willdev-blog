@@ -1,14 +1,20 @@
 import Head from 'next/head'
-import { getPrismicClient } from '../../services/prismic';
 import Prismic from "@prismicio/client";
+
+import React from "react";
+import { Search } from "../../components/Search";
+import { getPrismicClient } from '../../services/prismic';
 import { RichText } from "prismic-dom";
 import { IPostsProps } from '../../models/Posts';
 import { CardPost } from '../../components/CardPost';
-
-import styles from '../../styles/home.module.scss'
 import { GetStaticProps } from 'next';
 
-export default function Mobile({ posts }: IPostsProps) {
+import styles from '../../styles/home.module.scss'
+
+export default function Mobile({ posts }: IPostsProps) {  
+  const [listPost, setListPost] = React.useState(posts);
+  const [fullListPost, setFullListPost] = React.useState(posts);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,8 +22,13 @@ export default function Mobile({ posts }: IPostsProps) {
       </Head>
 
       <main>
+        <Search
+          listPost={fullListPost}
+          setList={setListPost}
+        />
+        
         <div className={styles.containerGridCardPost}>
-          {posts.map(post => (
+          {listPost.map(post => (
               <CardPost
                 key={post.slug}
                 slug={post.slug}
@@ -40,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
     [Prismic.Predicates.at("document.type", "posts"),
     Prismic.Predicates.at("document.tags", ["Mobile"])],
     {      
-      pageSize: 10,
+      pageSize: 100,
     });
      
   const posts = response.results.map(post => {

@@ -17,13 +17,14 @@ interface IPostProp {
   }
 }
 
-export default function frontEnd({ posts }: IPostProp) {
+export default function frontEnd({ posts }: IPostProp) {  
+
   return (
     <div className={styles.container}>
       <Head>
         <title>WillDev - Front-End - {posts.title}</title>
       </Head>
-      <main>
+      <main>        
         <div className={styles.containerPosts}>
           <h2>{posts.title}</h2>
           <time>

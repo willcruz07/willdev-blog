@@ -1,4 +1,4 @@
-type Post = {
+export type Post = {
   tag: string;
   slug: string;
   title: string;
